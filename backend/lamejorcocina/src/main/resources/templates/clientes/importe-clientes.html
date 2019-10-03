@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Cliente Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<div th:replace="includes/navbar :: navbar"></div>
+
+	</br>
+	<h4>Clientes</h4>
+	<h6>Clientes con gastos mayores a $100,000</h6>
+	<hr>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Nombre</th>
+				<th>Primer Apellido</th>
+				<th>Segundo Apellido</th>
+				<th>Importe Total</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempCliente : ${clientes}">
+			
+				<td th:text="${tempCliente[0]}" />	
+				<td th:text="${tempCliente[1]}" />	
+				<td th:text="${tempCliente[2]}" />
+				<!-- <td th:text="${tempCliente[3]}" />  -->
+				<td>$ <span th:text="${#numbers.formatDecimal(tempCliente[3], 0, 'COMMA', 0, 'POINT')}"></span></td>	
+				
+			</tr>
+		</tbody>		
+	</table>
+</div>
+	
+</body>
+</html>

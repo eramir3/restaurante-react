@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/js/clientes.js"></script>
+
+	<title>Guardar Cliente</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div th:replace="includes/navbar :: navbar"></div>
+	
+		</br>
+		<h4>Agregar Cliente</h4>
+		<hr>
+		
+		<form action="#" th:object="${cliente}" id="clienteForm">
+			 
+			<input type="text" th:field="*{nombre}"
+					class="form-control mb-4 col-4" placeholder="Nombre">
+
+			<input type="text" th:field="*{apellido1}"
+					class="form-control mb-4 col-4" placeholder="Primer Apellido">
+					
+			<input type="text" th:field="*{apellido2}"
+					class="form-control mb-4 col-4" placeholder="Segundo Apellido">
+
+			<input type="text" th:field="*{observaciones}"
+					class="form-control mb-4 col-4" placeholder="Observaciones">
+				
+			<button type="submit" class="btn btn-info col-2">Guardar</button>
+		</form>
+	
+		<hr>
+		<a th:href="@{/clientes/list}">Volver a lista de clientes</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

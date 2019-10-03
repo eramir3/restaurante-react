@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/js/facturas.js"></script>
+
+	<title>Registrar Factura</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div th:replace="includes/navbar :: navbar"></div>
+	
+		</br>
+		<h4>Registrar Factura</h4>
+		<hr>
+		
+		<form action="#" id="facturaForm">
+			
+			<!-- Datos Factura -->
+			<div class="row">
+			
+				<!-- Fecha -->
+				<div class="col-6 mb-4">
+					<div class="card" style="padding: 20px">
+						<div class="row">
+							<div class="col-12 mb-4">
+								<h4>Fecha</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 mb-4">
+								<!-- <input type="date" th:field="*{fechaFactura}" class="form-control" placeholder="Fecha"> -->
+								<input type="date" th:name="fechaFactura" class="form-control" placeholder="Fecha" required>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Mesa -->
+				<div class="col-6 mb-4">
+					<div class="card" style="padding: 20px">
+						<div class="row">
+							<div class="col-12 mb-4">
+								<h4>Mesa</h4>
+							</div>
+						</div>
+						<div class="row">
+			  				<div class="col-12 mb-4">
+			  					<!-- <select class="form-control" th:field="*{mesa}">
+								    <option th:each="tempMesa : ${mesas}" 
+								    	th:value="${tempMesa.id}" 
+								    	th:text="'Ubicacion: ' + ${tempMesa.ubicacion} + ' - Numero Comensales: ' + ${tempMesa.numMaxComensales}">
+								    </option>
+								</select> -->
+								<select class="form-control" th:name="mesaId" required>
+								    <option th:each="tempMesa : ${mesas}" 
+								    	th:value="${tempMesa.id}" 
+								    	th:text="'Ubicacion: ' + ${tempMesa.ubicacion} + ' - Numero Comensales: ' + ${tempMesa.numMaxComensales}">
+								    </option>
+								</select>
+			  				</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<!-- Camarero -->
+				<div class="col-6 mb-4">
+					<div class="card" style="padding: 20px">
+						<div class="row">
+							<div class="col-12 mb-4">
+								<h4>Camarero</h4>
+							</div>
+						</div>
+						<div class="row">
+			  				<div class="col-12 mb-4">
+			  				<!--  
+			  					<select class="form-control" th:object="${camarero}" >
+								    <option th:each="tempCamarero : ${camareros}" 
+								    	th:value="${tempCamarero}" 
+								    	th:text="${tempCamarero.nombre}  + ' ' + ${tempCamarero.apellido1} + ' ' + ${tempCamarero.apellido2}">
+								    </option>
+								</select>
+							-->
+							<select class="form-control" th:name="camareroId" required>
+								    <option th:each="tempCamarero : ${camareros}" 
+								    	th:value="${tempCamarero.id}" 
+								    	th:text="${tempCamarero.nombre}  + ' ' + ${tempCamarero.apellido1} + ' ' + ${tempCamarero.apellido2}">
+								    </option>
+								</select>
+			  				</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Cocinero -->
+				<div class="col-6 mb-4">
+					<div class="card" style="padding: 20px">
+						<div class="row">
+							<div class="col-12 mb-4">
+								<h4>Cocinero</h4>
+							</div>
+						</div>
+						<div class="row">
+			  				<div class="col-12 mb-4">
+			  					<!-- <select class="form-control">
+								    <option th:each="tempCocinero : ${cocineros}" 
+								    	th:value="${tempCocinero.id}" 
+								    	th:text="${tempCocinero.nombre}  + ' ' + ${tempCocinero.apellido1} + ' ' + ${tempCocinero.apellido2}">
+								    </option>
+								</select> -->
+								<select class="form-control" th:name="cocineroId" required>
+								    <option th:each="tempCocinero : ${cocineros}" 
+								    	th:value="${tempCocinero.id}" 
+								    	th:text="${tempCocinero.nombre}  + ' ' + ${tempCocinero.apellido1} + ' ' + ${tempCocinero.apellido2}">
+								    </option>
+								</select>
+			  				</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Datos Cliente -->
+			<div class="card" style="padding: 20px">
+				<div class="row">
+					<div class="col-3 mb-4">
+						<h4>Datos Cliente</h4>
+					</div>
+				</div>
+	  			
+	  			<div class="row">
+	  				<div class="col-3 mb-4">
+	  					<input type="text" class="form-control" placeholder="Nombre" id="nombreCliente" th:name="nombreCliente" required>
+	  				</div>
+	  				<div class="col-3 mb-4">
+	  					<input type="text" class="form-control" placeholder="Primer Apellido" id="apellido1Cliente" th:name="apellido1Cliente" required>
+	  				</div>
+	  				<div class="col-3 mb-4">
+	  					<input type="text" class="form-control" placeholder="Segundo Apellido" id="apellido2Cliente" th:name="apellido2Cliente" required>
+	  				</div>
+				</div>
+				<div class="row">
+					<div class="col-9 mb-4">
+						<textarea class="form-control" placeholder="Descripcion Opcional" id="observacionesCliente" th:name="observacionesCliente"></textarea>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-3 mb-4">
+						<button type="button" class="btn btn-info" id="btnAgregarPlato">Agregar Plato</button>
+					</div>
+				</div>
+				<div id="platos">
+					<div class="row" id="infoPlato-0">
+		  				<div class="col-3 mb-4">
+		  					<input type="text" class="form-control" placeholder="Plato" id="plato1" name="nombrePlato[]" required>
+		  				</div>
+		  				<div class="col-3 mb-4">
+		  					<input type="number" class="form-control" placeholder="Importe" id="importe1" name="importePlato[]" required>
+		  				</div>
+					</div>
+				</div>
+				</br>
+				
+				<div class="row">
+					<div class="col-6 mb-4">
+						<button type="submit" class="btn btn-info">Registrar Factura</button>
+					</div>
+				</div>
+			</div>
+			</br>
+		</form>
+		<hr>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

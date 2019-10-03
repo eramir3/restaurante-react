@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Camareros</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<div th:replace="includes/navbar :: navbar"></div>
+
+	</br>
+	<h4>Camareros</h4>
+	<h6>Facturado por camarero para el 2019</h6>
+	<hr>
+	
+	<table class="table table-bordered table-striped" style="display: block; overflow-x: auto; white-space: nowrap;">
+		<thead class="thead-dark">
+			<tr>
+				<th>Nombre</th>
+				<th>Primer Apellido</th>
+				<th>Segundo Apellido</th>
+				<th>Total Facturado</strong></th>
+				<th>Enero</th>
+				<th>Febrero</th>
+				<th>Marzo</th>
+				<th>Abril</th>
+				<th>Mayo</th>
+				<th>Junio</th>
+				<th>Julio</th>
+				<th>Agosto</th>
+				<th>Septiembre</th>
+				<th>Octubre</th>
+				<th>Noviembre</th>
+				<th>Diciembre</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="camarero : ${camareros}">
+				<td th:text="${camarero[0]}" />	
+				<td th:text="${camarero[1]}" />	
+				<td th:text="${camarero[2]}" />
+				<!-- <td th:text="${camarero[3]}" /> -->	
+				<td><strong>$ <span th:text="${#numbers.formatDecimal(camarero[3], 0, 'COMMA', 0, 'POINT')}"></span></strong></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[4], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[5], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[6], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[7], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[8], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[9], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[10], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[11], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[12], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[13], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[14], 0, 'COMMA', 0, 'POINT')}"></span></td>
+				<td>$ <span th:text="${#numbers.formatDecimal(camarero[15], 0, 'COMMA', 0, 'POINT')}"></span></td>	
+			</tr>
+		</tbody>		
+	</table>
+</div>
+	
+</body>
+</html>

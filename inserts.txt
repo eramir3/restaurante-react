@@ -1,0 +1,28 @@
+-- El motor de base de datos es Postgresql
+
+
+-- Camareros
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Francisco Javier', 'Grau', 'Cano');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Alvaro', 'Perez', 'Gallego');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Samuel', 'Font', 'Benitez');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Unai', 'Canoa', 'Carmona');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Bruno', 'Cruz', 'Delgado');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Leo', 'Navarro', 'Ortega');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Diego', 'Florez', 'Infante');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Mario', 'Hidalgo', 'Restrepo');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Arturo', 'Alonso', 'Serrano');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Pol', 'Ferrer', 'Perez');
+INSERT INTO camarero (nombre, apellido1, apellido2) VALUES ('Arnau', 'Lozano', 'Guerrero');
+
+
+-- Concineros
+INSERT INTO cocinero (nombre, apellido1, apellido2) VALUES ('Eduardo', 'Castro', 'Parra');
+INSERT INTO cocinero (nombre, apellido1, apellido2) VALUES ('Jose Antonio', 'Martinez', 'Moreno');
+INSERT INTO cocinero (nombre, apellido1, apellido2) VALUES ('Jesus', 'Bosch', 'Santos');
+
+
+-- Mesa
+INSERT INTO mesa (num_max_comensales, ubicacion) VALUES (4, 'Norte');
+INSERT INTO mesa (num_max_comensales, ubicacion) VALUES (2, 'Sur');
+INSERT INTO mesa (num_max_comensales, ubicacion) VALUES (4, 'Oriente');
+INSERT INTO mesa (num_max_comensales, ubicacion) VALUES (2, 'Occidente');
